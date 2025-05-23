@@ -15,7 +15,6 @@ function module.TweenColor(Part, Color2, Time, Direction, Style)
 end
 
 function module.TweenModel(Model, CFrame, Time, Style, Direction)
-	local TweenService = game:GetService("TweenService")
 	local Info = TweenInfo.new(Time, Style, Direction)
 	local CFrameValue = Instance.new("CFrameValue")
 	CFrameValue.Value = Model:GetPrimaryPartCFrame()
