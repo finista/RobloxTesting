@@ -59,6 +59,11 @@ function attachment:Render()
 
 	player.Character.PrimaryPart.CFrame = relative * player.Character.PrimaryPart.CFrame
 
+	local camera = workspace.CurrentCamera
+    if camera then
+        camera.CFrame = relative * camera.CFrame
+    end
+
 	self.lastCFrame = currentCFrame
 end
 
