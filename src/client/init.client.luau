@@ -1,0 +1,1 @@
+local movableAttachments = require(game.ReplicatedStorage:WaitForChild("Common"):WaitForChild("Modules"):WaitForChild("MovableAttachment")).New()
