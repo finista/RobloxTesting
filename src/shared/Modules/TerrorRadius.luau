@@ -19,14 +19,11 @@ function terrorRadius:SwitchRadius(radius)
 
 	self.radiusSwitchTask = task.spawn(function()
 		if self.currentLayer then
-			tween.MultiTween(
-				self.currentLayer.sound,
-				"Volume",
-				0,
-				0.5,
-				Enum.EasingDirection.InOut,
-				Enum.EasingStyle.Sine
-			)
+			tween.TweenProperty(self.currentLayer.sound, "Volume", 0, {
+				Duration = 0.5,
+				EasingDirection = Enum.EasingDirection.InOut,
+				EasingStyle = Enum.EasingStyle.Sine,
+			})
 		end
 
 		if not radius then
@@ -36,14 +33,11 @@ function terrorRadius:SwitchRadius(radius)
 		radius.sound.Volume = 0
 		radius.sound:Play()
 
-		tween.MultiTween(
-			radius.sound,
-			"Volume",
-			radius.sound:GetAttribute("originalVolume"),
-			0.5,
-			Enum.EasingDirection.InOut,
-			Enum.EasingStyle.Sine
-		)
+		tween.TweenProperty(radius.sound, "Volume", radius.sound:GetAttribute("originalVolume"), {
+			Duration = 0.5,
+			EasingDirection = Enum.EasingDirection.InOut,
+			EasingStyle = Enum.EasingStyle.Sine,
+		})
 	end)
 
 	self.currentLayer = radius
